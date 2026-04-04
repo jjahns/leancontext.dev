@@ -89,20 +89,22 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .tier-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .tier h3 { font-size: 1.25rem; font-weight: 700; color: var(--fg-bright); margin-bottom: 0.75rem; }
 .tier p { font-size: 0.9rem; color: var(--fg); line-height: 1.65; }
-.repo-tree { max-width: 28rem; }
+.repo-tree { max-width: 42rem; }
 .repo-tree pre { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 12px; padding: 1.5rem 2rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7; color: var(--fg); overflow-x: auto; }
 .repo-tree code { font-family: inherit; }
 
 .principles { max-width: var(--max); margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid var(--border); }
-.principle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; }
+.principle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
+.principle { padding: 2rem; border: 1px solid var(--bg-card-border); border-radius: 14px; background: var(--bg-card); }
 .principle h3 { font-size: 1.1rem; font-weight: 600; color: var(--fg-bright); margin-bottom: 0.5rem; }
+.principle .principle-origin { font-family: var(--mono); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.06em; margin-bottom: 0.75rem; opacity: 0.7; }
 .principle p { font-size: 0.95rem; color: var(--fg); line-height: 1.65; }
 
 .evidence { max-width: var(--max); margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid var(--border); }
 .stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 2rem; margin-bottom: 2rem; }
 .stat { text-align: center; }
-.stat-number { font-family: var(--mono); font-size: 3rem; font-weight: 700; color: var(--fg-bright); line-height: 1; margin-bottom: 0.5rem; }
-.stat-label { font-size: 0.85rem; color: var(--fg-muted); line-height: 1.5; }
+.stat-number { font-family: var(--mono); font-size: 3.5rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 0.5rem; }
+.stat-label { font-size: 0.9rem; color: var(--fg); line-height: 1.5; }
 .stat-source { text-align: center; font-family: var(--mono); font-size: 0.75rem; color: var(--fg-muted); }
 .stat-source a { color: var(--fg-muted); text-decoration: underline; text-underline-offset: 2px; }
 .stat-source a:hover { color: var(--fg); }
