@@ -1,14 +1,16 @@
 # Constitution
 
-This repository is the public home of the Lean Context Thesis. It follows the Lean Context standard.
+This repository is the public home of the Lean Context Standard. It follows the Lean Context standard.
 
 ## Hard Stops
 
 - Do not modify published thesis content without author review.
 - Do not push directly to main without verifying the build succeeds locally.
 - Do not change the design system (colors, typography, layout structure) without explicit approval.
-- Do not add dependencies or JavaScript frameworks. This is a static Hugo site. Keep it static.
+- Do not add dependencies or JavaScript frameworks. This is a static HTML site. No build step. Keep it static.
 - Do not remove or rename published URL paths. Existing links must not break.
+- Do not use the term "spine pattern" — that name is externally claimed. Our structure is "the standard" or "three tiers."
+- Do not enumerate "five disciplines" or create numbered lists that mirror 5S. We absorbed lean principles into our own structure. We do not copy them.
 
 ## Context System
 

@@ -21,3 +21,12 @@ When leancontext.dev is ready:
 ## URL Structure
 
 All links are relative. No absolute URLs anywhere. The site works at any base path without configuration changes.
+
+Published paths (do not rename or remove):
+- `/` — landing page
+- `/problem/` — pillar: the problem
+- `/framework/` — pillar: the framework
+- `/impact/` — pillar: the human impact
+- `/thesis/` — the full thesis
+- `/blog/` — blog
+- `/about/` — about

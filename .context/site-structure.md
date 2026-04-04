@@ -10,18 +10,28 @@ This is a static HTML site served directly from the main branch via GitHub Pages
 ## File Layout
 
 ```
-/index.html              → landing page
-/thesis/index.html       → the thesis
-/standard/index.html     → the standard
-/prompting/index.html    → prompting guide
+/index.html              → landing page (hero, three pillar cards, adoption guide, principles, evidence, CTA)
+/problem/index.html      → pillar: the problem (degradation loop, evidence, mechanism)
+/framework/index.html    → pillar: the framework (three tiers, four rules, lean ancestry, knowledge boundary, hybrid model)
+/impact/index.html       → pillar: the human impact (amplification loop, calibration, session discipline, sustain, the bet)
+/thesis/index.html       → the full thesis (long-form article)
+/blog/index.html         → blog (placeholder)
+/about/index.html        → about the author and the standard
 /css/style.css           → shared stylesheet
+/404.html                → 404 page
 ```
+
+## Navigation
+
+All pages share the same nav: Problem | Framework | Impact | Thesis | Blog | GitHub.
+All footers include an About link.
+The nav uses relative paths. Active page gets `class="active"`.
 
 ## Relative Paths
 
-All links use relative paths. From the root: `thesis/`, `standard/`, `prompting/`, `css/style.css`. From subpages: `../`, `../thesis/`, `../standard/`, `../prompting/`, `../css/style.css`.
+All links use relative paths. From the root: `problem/`, `framework/`, `thesis/`, `css/style.css`. From subpages: `../`, `../problem/`, `../framework/`, `../css/style.css`.
 
-No absolute paths. No build-time URL resolution. Everything just works at any deployment path.
+No absolute paths. No build-time URL resolution. Everything works at any deployment path.
 
 ## GitHub Pages
 

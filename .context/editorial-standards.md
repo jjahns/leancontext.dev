@@ -16,10 +16,20 @@ The thesis was written by Jay Jahns and refined through structured review with t
 - Headers do the structural work. Body text stays as prose.
 - The thesis reads like an operator describing observed failure modes, not a movement text announcing doctrine.
 
+## Identity
+
+- The standard is "The Lean Context Standard." Not the "spine pattern" (externally claimed).
+- The structure is "three tiers" or "constitution, manifest, supply." Not a named pattern.
+- The four rules: Workbench, Shadow Board, Pull, Andon. Four rules, not five.
+- "The legibility of pull" is a sub-section of the Pull Rule, not a separate rule. It uses `<em>` not `<strong>` in the thesis.
+- 5S is the ancestor. We absorbed it. We do not enumerate a parallel list of disciplines that maps 1:1 to 5S.
+- Pillar pages frame OUR principles derived from lean, not lean concepts with our names on them.
+
 ## Content Changes
 
 - The thesis is a published document. Edits should be corrections or clarifications, not rewrites.
-- The standard and prompting pages are living documents and can be updated more freely.
+- Pillar pages (problem, framework, impact) are living documents and can be updated freely.
+- Blog and about pages are living documents.
 - All claims should be checked against the referenced research before modification.
 - New sections need to earn their place — if they restate an existing point, they should be merged or cut.
 
