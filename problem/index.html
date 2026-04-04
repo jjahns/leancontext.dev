@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Problem — The Lean Context Standard</title>
+  <meta name="description" content="Every mistake triggers more instructions. More instructions make agents worse. This is the degradation loop.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="../" class="nav-logo">lean context</a>
+    <div class="nav-links">
+      <a href="../thesis/">Thesis</a>
+      <a href="../framework/">Framework</a>
+      <a href="../impact/">Impact</a>
+      <a href="https://github.com/jjahns/leancontext.dev" class="ext">GitHub</a>
+    </div>
+  </nav>
+
+  <div class="pillar-back"><a href="../">&larr; Back to overview</a></div>
+
+  <!-- ── HERO ── -->
+  <section class="pillar-hero">
+    <div class="pillar-hero__text">
+      <span class="pillar-hero__tag pillar-hero__tag--problem">the problem</span>
+      <h1>End the junk drawer.</h1>
+      <p class="pillar-hero__sub">When an agent makes a mistake, the instinct is to add more instructions. More rules. More examples. More context. This is backwards.</p>
+    </div>
+    <div class="pillar-hero__graphic pillar-hero__graphic--problem">
+      <svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+        <!-- Degradation Loop Visualization -->
+        <!-- Central circle path -->
+        <circle cx="190" cy="150" r="100" fill="none" stroke="#ff9b8e" stroke-opacity="0.1" stroke-width="1.5"/>
+        <circle cx="190" cy="150" r="70" fill="none" stroke="#ff9b8e" stroke-opacity="0.06" stroke-width="1"/>
+        <!-- Step 1: Mistake -->
+        <circle cx="190" cy="50" r="24" fill="none" stroke="#ff9b8e" stroke-opacity="0.4" stroke-width="1.5"/>
+        <text x="190" y="45" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">agent</text>
+        <text x="190" y="55" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">errs</text>
+        <!-- Step 2: Add rules -->
+        <circle cx="290" cy="150" r="24" fill="none" stroke="#ff9b8e" stroke-opacity="0.4" stroke-width="1.5"/>
+        <text x="290" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">human</text>
+        <text x="290" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">adds</text>
+        <!-- Step 3: Dilution -->
+        <circle cx="190" cy="250" r="24" fill="none" stroke="#ff9b8e" stroke-opacity="0.4" stroke-width="1.5"/>
+        <text x="190" y="245" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">focus</text>
+        <text x="190" y="255" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">dilutes</text>
+        <!-- Step 4: Trust erodes -->
+        <circle cx="90" cy="150" r="24" fill="none" stroke="#ff9b8e" stroke-opacity="0.4" stroke-width="1.5"/>
+        <text x="90" y="145" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">trust</text>
+        <text x="90" y="155" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.7">erodes</text>
+        <!-- Connecting arrows (clockwise) -->
+        <defs><marker id="loop-arrow" viewBox="0 0 6 6" refX="6" refY="3" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#ff9b8e" fill-opacity="0.3"/></marker></defs>
+        <path d="M210 55 Q 255 70, 270 130" stroke="#ff9b8e" stroke-opacity="0.2" stroke-width="1.5" fill="none" marker-end="url(#loop-arrow)"/>
+        <path d="M285 175 Q 260 225, 215 248" stroke="#ff9b8e" stroke-opacity="0.2" stroke-width="1.5" fill="none" marker-end="url(#loop-arrow)"/>
+        <path d="M168 248 Q 125 225, 100 175" stroke="#ff9b8e" stroke-opacity="0.2" stroke-width="1.5" fill="none" marker-end="url(#loop-arrow)"/>
+        <path d="M95 126 Q 120 75, 168 55" stroke="#ff9b8e" stroke-opacity="0.2" stroke-width="1.5" fill="none" marker-end="url(#loop-arrow)"/>
+        <!-- Center label -->
+        <text x="190" y="148" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" font-weight="700" fill="#ff9b8e" fill-opacity="0.5">degradation</text>
+        <text x="190" y="162" text-anchor="middle" font-family="'Inter',sans-serif" font-size="11" font-weight="700" fill="#ff9b8e" fill-opacity="0.5">loop</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── THE LOOP ── -->
+  <section class="pillar-section">
+    <div class="pillar-section__tag pillar-section__tag--problem">the degradation loop</div>
+    <h2>The default trajectory of every project.</h2>
+    <div class="pillar-steps">
+      <div class="pillar-step">
+        <div class="pillar-step__num pillar-step__num--problem">01</div>
+        <h3>Agent makes a mistake</h3>
+        <p>The output is wrong. A convention is missed. A file gets clobbered. Something breaks.</p>
+      </div>
+      <div class="pillar-step">
+        <div class="pillar-step__num pillar-step__num--problem">02</div>
+        <h3>Human adds instructions</h3>
+        <p>A new rule appears in the instruction file. "Never do X." "Always check Y." The motivation is reasonable.</p>
+      </div>
+      <div class="pillar-step">
+        <div class="pillar-step__num pillar-step__num--problem">03</div>
+        <h3>Context dilutes focus</h3>
+        <p>Every token of instruction is a token unavailable for actual work. The agent has less room to think.</p>
+      </div>
+      <div class="pillar-step">
+        <div class="pillar-step__num pillar-step__num--problem">04</div>
+        <h3>A different mistake happens</h3>
+        <p>The agent makes a new error. The human adds more rules. The file grows. Both sides work harder and achieve less.</p>
+      </div>
+    </div>
+    <div class="pillar-callout pillar-callout--problem">
+      <p>Each iteration makes the instruction file larger, the agent less focused, and the output worse. This loop is the default trajectory of every project that manages context through accumulation rather than curation.</p>
+    </div>
+  </section>
+
+  <!-- ── THE EVIDENCE ── -->
+  <section class="pillar-section pillar-section--split">
+    <div>
+      <div class="pillar-section__tag pillar-section__tag--problem">the evidence</div>
+      <h2>The research confirms what practitioners are discovering.</h2>
+      <p>A 2026 ETH Zurich study evaluated 138 task instances across 12 repositories. LLM-generated instruction files <strong>reduced</strong> agent success rates by 3% and increased costs by over 20%.</p>
+      <p>Developer-written instructions fared better &mdash; but still carried a significant cost penalty. The pattern is consistent: untargeted upfront context is expensive at best and harmful at worst.</p>
+      <p>Even well-written context hurts when it is loaded indiscriminately.</p>
+    </div>
+    <div class="pillar-section__visual pillar-section__visual--problem">
+      <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- Bar chart showing the stats -->
+        <!-- Baseline -->
+        <line x1="60" y1="200" x2="260" y2="200" stroke="#ff9b8e" stroke-opacity="0.15" stroke-width="1"/>
+        <text x="55" y="204" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.4">0%</text>
+        <!-- LLM-generated bar (negative) -->
+        <rect x="80" y="200" width="40" height="30" rx="3" fill="#ff9b8e" fill-opacity="0.2"/>
+        <text x="100" y="222" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="700" fill="#ff9b8e" fill-opacity="0.7">&minus;3%</text>
+        <text x="100" y="195" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.4">LLM-gen</text>
+        <!-- Cost bar (negative direction = cost increase) -->
+        <rect x="140" y="200" width="40" height="60" rx="3" fill="#ff9b8e" fill-opacity="0.15"/>
+        <text x="160" y="237" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="700" fill="#ff9b8e" fill-opacity="0.7">+20%</text>
+        <text x="160" y="195" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.4">cost</text>
+        <!-- Human-written bar (slightly positive) -->
+        <rect x="200" y="180" width="40" height="20" rx="3" fill="#ff9b8e" fill-opacity="0.25"/>
+        <text x="220" y="193" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="700" fill="#ff9b8e" fill-opacity="0.7">+4%</text>
+        <text x="220" y="175" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="7" fill="#ff9b8e" fill-opacity="0.4">human</text>
+        <!-- Source -->
+        <text x="150" y="42" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.35">ETH Zurich · 2026</text>
+        <text x="150" y="54" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.35">138 tasks · 12 repos</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── BIGGER WINDOWS ── -->
+  <section class="pillar-section pillar-section--split-reverse">
+    <div>
+      <div class="pillar-section__tag pillar-section__tag--problem">the constraint</div>
+      <h2>Bigger windows do not fix this.</h2>
+      <p>AI labs are pushing two-million-token windows and near-instant prompt caching. The <em>technical</em> constraint is relaxing. The <em>human</em> constraint is not.</p>
+      <p>A human cannot effectively govern, debug, or curate a two-million-token instruction file. When the agent hallucinates inside that file, the human has no way to determine which of the thousands of loaded instructions contributed.</p>
+      <p>Bigger windows without better structure just make the failure harder to diagnose.</p>
+    </div>
+    <div class="pillar-section__visual pillar-section__visual--problem">
+      <svg viewBox="0 0 300 240" xmlns="http://www.w3.org/2000/svg">
+        <!-- Expanding window with question marks -->
+        <rect x="50" y="40" width="60" height="40" rx="4" fill="none" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+        <text x="80" y="64" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.5">4K</text>
+        <rect x="50" y="100" width="100" height="40" rx="4" fill="none" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+        <text x="100" y="124" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.5">128K</text>
+        <rect x="50" y="160" width="200" height="40" rx="4" fill="none" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+        <text x="150" y="184" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.5">2M tokens</text>
+        <!-- Question marks scattered in the big window -->
+        <text x="80" y="178" font-family="'Inter',sans-serif" font-size="12" fill="#ff9b8e" fill-opacity="0.2">?</text>
+        <text x="120" y="190" font-family="'Inter',sans-serif" font-size="14" fill="#ff9b8e" fill-opacity="0.15">?</text>
+        <text x="190" y="175" font-family="'Inter',sans-serif" font-size="16" fill="#ff9b8e" fill-opacity="0.2">?</text>
+        <text x="220" y="190" font-family="'Inter',sans-serif" font-size="11" fill="#ff9b8e" fill-opacity="0.15">?</text>
+        <!-- Label -->
+        <text x="150" y="228" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="8" fill="#ff9b8e" fill-opacity="0.35">same problem, harder to debug</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── THE MECHANISM ── -->
+  <section class="pillar-section">
+    <div class="pillar-section__tag pillar-section__tag--problem">the mechanism</div>
+    <h2>The reason is mechanical.</h2>
+    <p>AI agents reason within a finite context window. Every token of instruction is a token unavailable for the actual work &mdash; reading code, understanding state, solving the problem.</p>
+    <p>Overload the window with instructions and the agent has less room to think. The capability is still there. It is being <em>diluted</em> &mdash; not by reducing what the agent can do, but by forcing it to spend its capacity navigating irrelevant context instead of reasoning about the problem.</p>
+    <div class="pillar-callout pillar-callout--problem">
+      <p>Most projects are running their agents at a deficit before the first line of code is read.</p>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta">
+    <h2>There is a way out.</h2>
+    <p>The lean approach reverses the degradation loop. Structure replaces accumulation. Curation replaces fear.</p>
+    <a href="../framework/" class="cta-button">The Framework &rarr;</a>
+  </section>
+
+  <footer class="footer">
+    <p>The Lean Context Standard · Jay Jahns · 2026</p>
+  </footer>
+</body>
+</html>

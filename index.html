@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lean Context</title>
-  <meta name="description" content="More instructions make your agents worse. The Lean Context Thesis is a structural approach to human-agent collaboration.">
-  <meta property="og:title" content="The Lean Context Thesis">
+  <title>The Lean Context Standard</title>
+  <meta name="description" content="More instructions make your agents worse. The Lean Context Standard is a structural approach to human-agent collaboration.">
+  <meta property="og:title" content="The Lean Context Standard">
   <meta property="og:description" content="More instructions make your agents worse. Stop stuffing context. Start curating it.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/style.css">
@@ -14,36 +14,155 @@
   <nav class="nav">
     <a href="./" class="nav-logo">lean context</a>
     <div class="nav-links">
-      <a href="thesis/">Full thesis</a>
+      <a href="thesis/">Thesis</a>
       <a href="https://github.com/jjahns/leancontext.dev" class="ext">GitHub</a>
     </div>
   </nav>
 
   <section class="hero">
     <h1>More instructions make your agents worse.</h1>
-    <p class="hero-sub">The Lean Context Thesis is a structural approach to human-agent collaboration. Stop stuffing the context window. Start curating it.</p>
+    <p class="hero-sub">The Lean Context Standard is a structural approach to human-agent collaboration. Stop stuffing the context window. Start curating it.</p>
   </section>
 
   <!-- ── THE THREE PILLARS ── -->
   <section class="pillars">
-    <div class="pillar">
-      <span class="pillar-tag">the problem</span>
-      <h2>End the junk drawer</h2>
-      <p>Every mistake triggers more instructions. More instructions dilute focus. A different mistake happens. The loop repeats.</p>
-      <p>This is the <em>degradation loop</em> — the default trajectory of every project that manages agent context through accumulation rather than curation. Adding rules feels like safety. It is the opposite.</p>
-    </div>
-    <div class="pillar">
-      <span class="pillar-tag">the framework</span>
-      <h2>Lean architecture for AI</h2>
-      <p>Treat the context window like a factory workbench. Only what the current operation needs. Everything else is inventory waste.</p>
-      <p>A <em>constitution</em> for hard stops. A <em>manifest</em> to route context. A <em>supply</em> pulled on demand. The agent shows its work. The human can trace every decision.</p>
-    </div>
-    <div class="pillar">
-      <span class="pillar-tag">the human impact</span>
-      <h2>The amplification loop</h2>
-      <p>When the agent stops instead of guessing, the gap gets filled. The system improves. Trust builds. The human delegates more. Both sides get smarter.</p>
-      <p>Fear is replaced by discipline. Sessions end clean. Context lives in the repo — not the conversation. <em>The system remembers so the agent doesn't have to.</em></p>
-    </div>
+    <a href="problem/" class="pillar-link">
+      <div class="pillar">
+        <div class="pillar-illustration pillar-illustration--problem">
+          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Degradation loop: stacking rectangles getting more chaotic -->
+            <defs>
+              <linearGradient id="coral-fade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ff9b8e" stop-opacity="0.3"/>
+                <stop offset="100%" stop-color="#ff9b8e" stop-opacity="0.05"/>
+              </linearGradient>
+            </defs>
+            <!-- Clean document -->
+            <rect x="40" y="30" width="48" height="60" rx="4" fill="none" stroke="#ff9b8e" stroke-opacity="0.5" stroke-width="1.5"/>
+            <line x1="50" y1="44" x2="78" y2="44" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="50" y1="52" x2="74" y2="52" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="50" y1="60" x2="70" y2="60" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <!-- Arrow -->
+            <path d="M100 60 L130 60" stroke="#ff9b8e" stroke-opacity="0.25" stroke-width="1.5" fill="none" marker-end="url(#arrow-coral)"/>
+            <defs><marker id="arrow-coral" viewBox="0 0 6 6" refX="6" refY="3" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#ff9b8e" fill-opacity="0.25"/></marker></defs>
+            <!-- Bloated document -->
+            <rect x="140" y="20" width="48" height="80" rx="4" fill="none" stroke="#ff9b8e" stroke-opacity="0.5" stroke-width="1.5"/>
+            <line x1="150" y1="34" x2="178" y2="34" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="150" y1="42" x2="174" y2="42" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="150" y1="50" x2="178" y2="50" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="150" y1="58" x2="170" y2="58" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="150" y1="66" x2="176" y2="66" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="150" y1="74" x2="172" y2="74" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="150" y1="82" x2="178" y2="82" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <!-- Arrow -->
+            <path d="M200 60 L230 60" stroke="#ff9b8e" stroke-opacity="0.25" stroke-width="1.5" fill="none" marker-end="url(#arrow-coral)"/>
+            <!-- Chaos document -->
+            <rect x="240" y="10" width="48" height="110" rx="4" fill="none" stroke="#ff9b8e" stroke-opacity="0.5" stroke-width="1.5"/>
+            <line x1="250" y1="24" x2="278" y2="24" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="32" x2="274" y2="32" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="40" x2="278" y2="40" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="48" x2="270" y2="48" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="56" x2="276" y2="56" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="64" x2="272" y2="64" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="72" x2="278" y2="72" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="80" x2="268" y2="80" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="88" x2="276" y2="88" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="96" x2="270" y2="96" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="250" y1="104" x2="278" y2="104" stroke="#ff9b8e" stroke-opacity="0.3" stroke-width="1.5"/>
+            <!-- Circular arrow: the loop -->
+            <path d="M310 60 C340 20, 370 50, 360 90 C350 130, 310 140, 280 130" stroke="#ff9b8e" stroke-opacity="0.2" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+            <!-- X marks -->
+            <g stroke="#ff9b8e" stroke-opacity="0.35" stroke-width="2">
+              <line x1="330" y1="75" x2="340" y2="85"/>
+              <line x1="340" y1="75" x2="330" y2="85"/>
+              <line x1="345" y1="95" x2="355" y2="105"/>
+              <line x1="355" y1="95" x2="345" y2="105"/>
+            </g>
+          </svg>
+        </div>
+        <span class="pillar-tag pillar-tag--problem">the problem</span>
+        <h2>End the junk drawer</h2>
+        <p>Every mistake triggers more instructions. More instructions dilute focus. A different mistake happens. The loop repeats.</p>
+        <div class="pillar-cta pillar-cta--problem">Read more <span aria-hidden="true">&rarr;</span></div>
+      </div>
+    </a>
+    <a href="framework/" class="pillar-link">
+      <div class="pillar">
+        <div class="pillar-illustration pillar-illustration--framework">
+          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Three-tier architecture: constitution / manifest / supply -->
+            <!-- Constitution tier -->
+            <rect x="120" y="16" width="160" height="32" rx="6" fill="none" stroke="#7edcb5" stroke-opacity="0.5" stroke-width="1.5"/>
+            <text x="200" y="37" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#7edcb5" fill-opacity="0.7">CONSTITUTION</text>
+            <!-- Manifest tier -->
+            <rect x="100" y="64" width="200" height="32" rx="6" fill="none" stroke="#7edcb5" stroke-opacity="0.4" stroke-width="1.5"/>
+            <text x="200" y="85" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="10" fill="#7edcb5" fill-opacity="0.6">MANIFEST</text>
+            <!-- Connection lines -->
+            <line x1="200" y1="48" x2="200" y2="64" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 2"/>
+            <!-- Supply tier: scattered docs -->
+            <line x1="150" y1="96" x2="150" y2="112" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 2"/>
+            <line x1="200" y1="96" x2="200" y2="112" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 2"/>
+            <line x1="250" y1="96" x2="250" y2="112" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1" stroke-dasharray="3 2"/>
+            <rect x="130" y="112" width="40" height="28" rx="4" fill="none" stroke="#7edcb5" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="136" y1="122" x2="164" y2="122" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5"/>
+            <line x1="136" y1="129" x2="158" y2="129" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5"/>
+            <rect x="180" y="112" width="40" height="28" rx="4" fill="none" stroke="#7edcb5" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="186" y1="122" x2="214" y2="122" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5"/>
+            <line x1="186" y1="129" x2="208" y2="129" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5"/>
+            <rect x="230" y="112" width="40" height="28" rx="4" fill="none" stroke="#7edcb5" stroke-opacity="0.3" stroke-width="1.5"/>
+            <line x1="236" y1="122" x2="264" y2="122" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5"/>
+            <line x1="236" y1="129" x2="258" y2="129" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5"/>
+            <!-- Labels -->
+            <text x="58" y="37" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="8" fill="#7edcb5" fill-opacity="0.35">always loaded</text>
+            <text x="58" y="85" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="8" fill="#7edcb5" fill-opacity="0.35">always visible</text>
+            <text x="58" y="130" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="8" fill="#7edcb5" fill-opacity="0.35">on demand</text>
+          </svg>
+        </div>
+        <span class="pillar-tag pillar-tag--framework">the framework</span>
+        <h2>Lean architecture for AI</h2>
+        <p>A <em>constitution</em> for hard stops. A <em>manifest</em> to route context. A <em>supply</em> pulled on demand. Three tiers. One contract.</p>
+        <div class="pillar-cta pillar-cta--framework">Read more <span aria-hidden="true">&rarr;</span></div>
+      </div>
+    </a>
+    <a href="impact/" class="pillar-link">
+      <div class="pillar">
+        <div class="pillar-illustration pillar-illustration--impact">
+          <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+            <!-- Amplification loop: upward spiral -->
+            <defs>
+              <linearGradient id="violet-up" x1="0" y1="1" x2="0" y2="0">
+                <stop offset="0%" stop-color="#b4a0f4" stop-opacity="0.1"/>
+                <stop offset="100%" stop-color="#b4a0f4" stop-opacity="0.4"/>
+              </linearGradient>
+            </defs>
+            <!-- Rising steps -->
+            <rect x="60" y="130" width="50" height="30" rx="4" fill="none" stroke="#b4a0f4" stroke-opacity="0.25" stroke-width="1.5"/>
+            <rect x="120" y="105" width="50" height="30" rx="4" fill="none" stroke="#b4a0f4" stroke-opacity="0.35" stroke-width="1.5"/>
+            <rect x="180" y="78" width="50" height="30" rx="4" fill="none" stroke="#b4a0f4" stroke-opacity="0.45" stroke-width="1.5"/>
+            <rect x="240" y="50" width="50" height="30" rx="4" fill="none" stroke="#b4a0f4" stroke-opacity="0.55" stroke-width="1.5"/>
+            <rect x="300" y="22" width="50" height="30" rx="4" fill="url(#violet-up)" stroke="#b4a0f4" stroke-opacity="0.6" stroke-width="1.5"/>
+            <!-- Connecting arcs -->
+            <path d="M110 140 Q 115 115, 120 120" stroke="#b4a0f4" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+            <path d="M170 115 Q 175 90, 180 93" stroke="#b4a0f4" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+            <path d="M230 88 Q 235 63, 240 65" stroke="#b4a0f4" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+            <path d="M290 60 Q 295 35, 300 37" stroke="#b4a0f4" stroke-opacity="0.2" stroke-width="1" fill="none"/>
+            <!-- Labels inside steps -->
+            <text x="85" y="149" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#b4a0f4" fill-opacity="0.4">curate</text>
+            <text x="145" y="124" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#b4a0f4" fill-opacity="0.5">reason</text>
+            <text x="205" y="97" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#b4a0f4" fill-opacity="0.5">trust</text>
+            <text x="265" y="69" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#b4a0f4" fill-opacity="0.6">delegate</text>
+            <text x="325" y="41" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="7" fill="#b4a0f4" fill-opacity="0.7">amplify</text>
+            <!-- Upward arrow -->
+            <path d="M340 20 L345 10 L350 20" stroke="#b4a0f4" stroke-opacity="0.5" stroke-width="1.5" fill="none"/>
+            <line x1="345" y1="10" x2="345" y2="2" stroke="#b4a0f4" stroke-opacity="0.5" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <span class="pillar-tag pillar-tag--impact">the human impact</span>
+        <h2>The amplification loop</h2>
+        <p>Fear is replaced by discipline. Trust builds. The human delegates more. Both sides get smarter every session.</p>
+        <div class="pillar-cta pillar-cta--impact">Read more <span aria-hidden="true">&rarr;</span></div>
+      </div>
+    </a>
   </section>
 
   <!-- ── HOW IT WORKS ── -->
@@ -57,17 +176,17 @@
       <div class="tier">
         <div class="tier-label">Always loaded</div>
         <h3>Constitution</h3>
-        <p>Hard stops only. If the agent misses it once, the damage is irreversible. 30–50 lines. Every line load-bearing. The constitution is not a journal — it is a checklist for operating on production.</p>
+        <p>Hard stops only. If the agent misses it once, the damage is irreversible. 30&ndash;50 lines. Every line load-bearing. The constitution is not a journal &mdash; it is a checklist for operating on production.</p>
       </div>
       <div class="tier">
         <div class="tier-label">Always visible</div>
         <h3>Manifest</h3>
-        <p>A routing table that maps tasks to supply documents. The agent sees what context exists without holding any of it. Shadow board for the workbench. 10–15 lines.</p>
+        <p>A routing table that maps tasks to supply documents. The agent sees what context exists without holding any of it. Shadow board for the workbench. 10&ndash;15 lines.</p>
       </div>
       <div class="tier">
         <div class="tier-label">Pulled on demand</div>
         <h3>Supply</h3>
-        <p>One topic per document. Only invisible knowledge — the things the agent could never discover from code alone. Named by retrieval key. Loaded when earned.</p>
+        <p>One topic per document. Only invisible knowledge &mdash; the things the agent could never discover from code alone. Named by retrieval key. Loaded when earned.</p>
       </div>
     </div>
     <div class="spine-tree">
@@ -92,11 +211,11 @@
       </div>
       <div class="principle">
         <h3>Session discipline</h3>
-        <p>One task. One session. Clean workbench. Problem solved or gap filled — the session ends. Context lives in the repo, not the conversation history.</p>
+        <p>One task. One session. Clean workbench. Problem solved or gap filled &mdash; the session ends. Context lives in the repo, not the conversation history.</p>
       </div>
       <div class="principle">
         <h3>Knowledge boundary</h3>
-        <p>Inferable knowledge stays out. The agent can read the code. Invisible knowledge goes in — the decisions, the failures, the constraints no code can encode.</p>
+        <p>Inferable knowledge stays out. The agent can read the code. Invisible knowledge goes in &mdash; the decisions, the failures, the constraints no code can encode.</p>
       </div>
       <div class="principle">
         <h3>Context compaction</h3>
@@ -110,7 +229,7 @@
     <span class="section-tag">the evidence</span>
     <div class="stat-row">
       <div class="stat">
-        <div class="stat-number">−3%</div>
+        <div class="stat-number">&minus;3%</div>
         <div class="stat-label">Success rate with LLM-generated context files</div>
       </div>
       <div class="stat">
@@ -128,8 +247,8 @@
   <!-- ── CTA ── -->
   <section class="cta">
     <h2>Read the full thesis</h2>
-    <p>The complete argument — the degradation loop, the lean manufacturing parallel, the four rules, boundary conditions, calibration, and the force multiplier.</p>
-    <a href="thesis/" class="cta-button">The Lean Context Thesis →</a>
+    <p>The complete argument &mdash; the degradation loop, the lean manufacturing parallel, the four rules, boundary conditions, calibration, and the force multiplier.</p>
+    <a href="thesis/" class="cta-button">The Lean Context Thesis &rarr;</a>
   </section>
 
   <footer class="footer">
