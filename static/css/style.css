@@ -20,6 +20,59 @@
   --measure: 38em;
 }
 
+/* ── Navigation ── */
+.site-nav {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.nav-logo:hover {
+  color: var(--fg);
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.15s ease;
+}
+
+.nav-links a:hover {
+  color: var(--fg);
+}
+
+.nav-links a.active {
+  color: var(--fg-heading);
+}
+
+.nav-links a.nav-ext {
+  opacity: 0.5;
+}
+
+.nav-links a.nav-ext:hover {
+  opacity: 1;
+}
+
 /* ── Body ── */
 html {
   font-size: 18px;
@@ -67,7 +120,21 @@ body {
 
 /* ── Body Content ── */
 .thesis-body h2 {
-  display: none; /* The subtitle is already in the header */
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--fg-heading);
+  margin-top: 4rem;
+  margin-bottom: 1.2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  letter-spacing: -0.01em;
+}
+
+.thesis-body h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .thesis-body h3 {
@@ -138,6 +205,27 @@ body {
   font-style: italic;
 }
 
+/* ── Code Blocks ── */
+.thesis-body pre {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2em 1.4em;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.thesis-body pre code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
 /* ── Horizontal rules ── */
 .thesis-body hr {
   border: none;
@@ -171,6 +259,15 @@ body {
     font-size: 16px;
   }
 
+  .site-nav {
+    padding: 1rem 1.25rem 0;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
   .thesis {
     padding: 2.5rem 1.25rem 4rem;
   }
@@ -181,6 +278,11 @@ body {
 
   .thesis-header {
     margin-bottom: 2.5rem;
+  }
+
+  .thesis-body h2 {
+    margin-top: 3rem;
+    font-size: 1.4rem;
   }
 
   .thesis-body h3 {

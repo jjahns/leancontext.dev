@@ -1,0 +1,14 @@
+{{ define "main" }}
+<article class="thesis">
+  <header class="thesis-header">
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.subtitle }}<p class="subtitle">{{ . }}</p>{{ end }}
+  </header>
+  <div class="thesis-body">
+    {{ .Content }}
+  </div>
+  <footer class="thesis-footer">
+    <p>The Lean Context Thesis · Jay Jahns · 2026</p>
+  </footer>
+</article>
+{{ end }}
