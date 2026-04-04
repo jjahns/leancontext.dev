@@ -6,7 +6,7 @@ A philosophy, an operation, and a structure for human-agent collaboration.
 
 ## What This Is
 
-The Lean Context Thesis argues that untargeted upfront context dilutes AI agents — and that the fix is not better prompts, but better systems. It proposes a three-tier architecture (constitution, manifest, supply) implemented through the spine pattern, maintained by context compaction, and governed by a cultural contract between the human and the agent.
+The Lean Context Thesis argues that untargeted upfront context dilutes AI agents — and that the fix is not better prompts, but better systems. It proposes a three-tier architecture (constitution, manifest, supply) maintained by context compaction, governed by five disciplines (curate, route, pull, stop, demote), and sustained by a cultural contract between the human and the agent.
 
 ## The Stack
 
@@ -14,15 +14,16 @@ The Lean Context Thesis argues that untargeted upfront context dilutes AI agents
 |-------|------|--------------|
 | Why | **Lean Context** | The philosophy — why curated, modular, pull-based context makes humans and agents smarter together |
 | How | **Context Compaction** | The operation — demotion, staleness checks, session discipline |
-| Where | **The Spine Pattern** | The structure — repository layout that encodes the cultural contract |
+| Where | **The Standard** | The structure — constitution, manifest, supply in every repository |
 
 ## Read the Thesis
 
 **[leancontext.dev](https://leancontext.dev)**
 
-- [The Thesis](https://leancontext.dev/) — the foundational argument
-- [The Standard](https://leancontext.dev/standard/) — how to structure repositories
-- [Prompting](https://leancontext.dev/prompting/) — reusable prompts for adoption
+- [The Thesis](https://leancontext.dev/thesis/) — the foundational argument
+- [The Problem](https://leancontext.dev/problem/) — the degradation loop and the evidence
+- [The Framework](https://leancontext.dev/framework/) — three tiers, five disciplines, knowledge boundary
+- [The Human Impact](https://leancontext.dev/impact/) — the amplification loop and calibration
 
 ## Key Concepts
 

@@ -89,9 +89,9 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .tier-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .tier h3 { font-size: 1.25rem; font-weight: 700; color: var(--fg-bright); margin-bottom: 0.75rem; }
 .tier p { font-size: 0.9rem; color: var(--fg); line-height: 1.65; }
-.spine-tree { max-width: 28rem; }
-.spine-tree pre { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 12px; padding: 1.5rem 2rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7; color: var(--fg); overflow-x: auto; }
-.spine-tree code { font-family: inherit; }
+.repo-tree { max-width: 28rem; }
+.repo-tree pre { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 12px; padding: 1.5rem 2rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7; color: var(--fg); overflow-x: auto; }
+.repo-tree code { font-family: inherit; }
 
 .principles { max-width: var(--max); margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid var(--border); }
 .principle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem 3rem; margin-top: 2rem; }
