@@ -175,14 +175,15 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .pillar-code code { font-family: inherit; }
 
 /* ═══ ARTICLE ═══ */
-.article { max-width: var(--measure); margin: 0 auto; padding: 5rem 2rem 6rem; }
+.article { max-width: 48rem; margin: 0 auto; padding: 2rem 2rem 6rem; }
 .article-header { margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
-.article-header h1 { font-size: 2.5rem; font-weight: 800; color: var(--fg-bright); line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
-.article-header .subtitle { font-size: 1.1rem; color: var(--fg-muted); }
+.article-header h1 { font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 900; color: var(--fg-bright); line-height: 1.1; letter-spacing: -0.04em; margin-bottom: 0.75rem; }
+.article-header .subtitle { font-size: 1.15rem; color: var(--fg); }
 .article-body { font-family: var(--serif); font-size: 1.15rem; line-height: 1.85; color: var(--fg); }
 .article-body h2 { font-family: var(--sans); font-size: 1.5rem; font-weight: 700; color: var(--fg-bright); margin-top: 4rem; margin-bottom: 1rem; padding-top: 2.5rem; border-top: 1px solid var(--border); letter-spacing: -0.02em; }
 .article-body h2:first-child { margin-top: 0; padding-top: 0; border-top: none; }
-.article-body h3 { font-family: var(--sans); font-size: 1.2rem; font-weight: 600; color: var(--fg-bright); margin-top: 3rem; margin-bottom: 0.8rem; }
+.article-body h3 { font-family: var(--sans); font-size: 1.6rem; font-weight: 800; color: var(--fg-bright); margin-top: 4rem; margin-bottom: 1rem; padding-top: 2.5rem; border-top: 1px solid var(--border); letter-spacing: -0.02em; }
+.article-body h3:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 .article-body p { margin-bottom: 1.3rem; }
 .article-body strong { color: var(--fg-bright); font-weight: 600; }
 .article-body ol, .article-body ul { margin-bottom: 1.3rem; padding-left: 1.5em; }
@@ -192,7 +193,7 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .article-body code { font-family: var(--mono); font-size: 0.85em; background: var(--bg-card); padding: 0.2em 0.4em; border-radius: 4px; color: var(--fg-bright); }
 .article-body pre { background: rgba(255,255,255,0.03); border: 1px solid var(--bg-card-border); border-radius: 10px; padding: 1.5rem; margin: 2rem 0; overflow-x: auto; font-family: var(--mono); font-size: 0.85rem; line-height: 1.6; }
 .article-body pre code { background: none; padding: 0; font-size: inherit; }
-.article-body blockquote { border-left: 2px solid var(--border); padding-left: 1.5rem; margin: 2rem 0; color: var(--fg-muted); font-style: italic; }
+.article-body blockquote { border-left: 2px solid var(--accent); padding-left: 1.5rem; margin: 2rem 0; color: var(--fg-bright); font-style: italic; }
 .article-body hr { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
 .article-footer { margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--fg-muted); }
 
@@ -205,9 +206,10 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
   .principle-grid { grid-template-columns: 1fr; }
   .stat-row { grid-template-columns: 1fr; gap: 2.5rem; }
   .how, .principles, .evidence, .cta { padding-left: 1.5rem; padding-right: 1.5rem; }
-  .article { padding: 3rem 1.5rem 4rem; }
+  .article { padding: 2rem 1.5rem 4rem; }
   .article-header h1 { font-size: 1.8rem; }
   .article-body { font-size: 1.05rem; }
+  .article-body h3 { font-size: 1.3rem; }
   .pillar-hero { grid-template-columns: 1fr; padding: 2rem 1.5rem 3rem; gap: 2.5rem; }
   .pillar-hero h1 { font-size: 2.2rem; }
   .pillar-hero__graphic { min-height: 220px; padding: 2rem; }
