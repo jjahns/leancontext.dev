@@ -93,6 +93,15 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .repo-tree pre { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 12px; padding: 1.5rem 2rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7; color: var(--fg); overflow-x: auto; }
 .repo-tree code { font-family: inherit; }
 
+.bootstrap { margin-top: 3rem; padding: 2.5rem; border: 1px solid var(--bg-card-border); border-radius: 14px; background: var(--bg-card); max-width: 42rem; }
+.bootstrap-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
+.bootstrap p { font-size: 0.9rem; color: var(--fg); line-height: 1.65; margin-bottom: 1rem; }
+.bootstrap-prompt { background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; overflow-x: auto; }
+.bootstrap-prompt code { font-family: var(--mono); font-size: 0.82rem; color: var(--fg-bright); line-height: 1.6; word-break: break-all; }
+.bootstrap-prompt a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+.bootstrap-prompt a:hover { color: var(--fg-bright); }
+.bootstrap-note { font-size: 0.8rem; color: var(--fg-muted); margin-bottom: 0; font-style: italic; }
+
 .principles { max-width: var(--max); margin: 0 auto; padding: 5rem 2rem; border-top: 1px solid var(--border); }
 .principle-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin-top: 2rem; }
 .principle { padding: 2rem; border: 1px solid var(--bg-card-border); border-radius: 14px; background: var(--bg-card); }
