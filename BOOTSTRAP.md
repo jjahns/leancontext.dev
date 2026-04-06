@@ -160,9 +160,6 @@ Each supply document follows this structure:
 ## Context
 [Why this document exists. What the agent cannot discover by reading the code.]
 
-## Decisions
-[Architectural or design decisions and why they were made. What was considered and rejected.]
-
 ## Constraints
 [Constraints not encoded in the code. External requirements, compliance, compatibility.]
 
