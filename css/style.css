@@ -89,7 +89,6 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .tier-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .tier h3 { font-size: 1.25rem; font-weight: 700; color: var(--fg-bright); margin-bottom: 0.75rem; }
 .tier p { font-size: 0.9rem; color: var(--fg); line-height: 1.65; }
-.tier--full { margin-top: 0; }
 .bootstrap-prompt { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0 0.75rem; overflow-x: auto; }
 .bootstrap-prompt code { font-family: var(--mono); font-size: 0.8rem; color: var(--fg-bright); line-height: 1.6; word-break: break-all; }
 .bootstrap-prompt a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
