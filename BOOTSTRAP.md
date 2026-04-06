@@ -77,6 +77,8 @@ Populate hard stops and procedures by inferring from:
 
 Everything from existing instruction files that does **not** qualify as a hard stop goes into supply documents in Step 5.
 
+**Demotion rule**: The constitution will bloat. This is certain. Revisit it regularly. For every line, ask: if the agent misses this once, is the damage irreversible? If the answer is no, move it to a `.context/` supply document. The lesson is preserved. The workbench stays clean.
+
 ---
 
 ## Step 4: Create `MANIFEST.md`
