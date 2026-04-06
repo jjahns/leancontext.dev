@@ -193,24 +193,14 @@
         <p>Symlink your tool's expected file to the constitution: <code>ln -s CONSTITUTION.md CLAUDE.md</code> for Claude Code, <code>AGENTS.md</code> for Copilot, <code>.cursorrules</code> for Cursor. The agent finds the constitution automatically. Add one line: <em>"Read MANIFEST.md before starting. Pull supply documents when the task matches a route. Stop when uncertain."</em></p>
       </div>
     </div>
-    <div class="repo-tree">
-      <pre><code>your-repo/
-├── CONSTITUTION.md      ← hard stops, always loaded
-├── MANIFEST.md          ← routing table, always visible
-├── CLAUDE.md            → CONSTITUTION.md (symlink)
-├── AGENTS.md            → CONSTITUTION.md (symlink)
-├── .context/            ← supply, pulled on demand
-│   ├── auth-architecture.md
-│   ├── network-standards.md
-│   └── deploy-procedures.md
-└── src/</code></pre>
-      <div class="repo-tree-agent">
-        <p>Or have your agent build this. Paste into any agent:</p>
-        <div class="bootstrap-prompt">
-          <code>Fetch <a href="https://raw.githubusercontent.com/jjahns/leancontext.dev/main/BOOTSTRAP.md">https://raw.githubusercontent.com/jjahns/leancontext.dev/main/BOOTSTRAP.md</a> and follow every step.</code>
-        </div>
-        <p class="bootstrap-note">Non-destructive. Adds structure alongside what already exists.</p>
+    <div class="tier tier--full">
+      <div class="tier-label">Automated</div>
+      <h3>Or have your agent do it</h3>
+      <p>Paste this into any agent. It reads your repository, creates the three-tier structure, migrates existing instruction files, and reports back what it built.</p>
+      <div class="bootstrap-prompt">
+        <code>Fetch <a href="https://raw.githubusercontent.com/jjahns/leancontext.dev/main/BOOTSTRAP.md">https://raw.githubusercontent.com/jjahns/leancontext.dev/main/BOOTSTRAP.md</a> and follow every step.</code>
       </div>
+      <p class="bootstrap-note">Non-destructive. No files are deleted. No code is changed. The agent adds structure alongside what already exists.</p>
     </div>
   </section>
 

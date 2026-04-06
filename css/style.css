@@ -89,12 +89,8 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 .tier-label { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.75rem; }
 .tier h3 { font-size: 1.25rem; font-weight: 700; color: var(--fg-bright); margin-bottom: 0.75rem; }
 .tier p { font-size: 0.9rem; color: var(--fg); line-height: 1.65; }
-.repo-tree { max-width: 42rem; }
-.repo-tree pre { background: var(--bg-card); border: 1px solid var(--bg-card-border); border-radius: 12px; padding: 1.5rem 2rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7; color: var(--fg); overflow-x: auto; }
-.repo-tree code { font-family: inherit; }
-.repo-tree-agent { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
-.repo-tree-agent p { font-size: 0.85rem; color: var(--fg-muted); margin-bottom: 0.75rem; }
-.bootstrap-prompt { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 0.75rem; overflow-x: auto; }
+.tier--full { grid-column: 1 / -1; margin-top: -1.5rem; }
+.bootstrap-prompt { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0 0.75rem; overflow-x: auto; }
 .bootstrap-prompt code { font-family: var(--mono); font-size: 0.8rem; color: var(--fg-bright); line-height: 1.6; word-break: break-all; }
 .bootstrap-prompt a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .bootstrap-prompt a:hover { color: var(--fg-bright); }
@@ -208,13 +204,14 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 
 /* ═══ RESPONSIVE ═══ */
 @media (max-width: 768px) {
-  .nav { flex-wrap: wrap; gap: 1rem; padding: 1.25rem 1.5rem; }
-  .nav-links { gap: 1.25rem; flex-wrap: wrap; }
+  .nav { flex-direction: column; gap: 0.75rem; padding: 1.25rem 1.5rem; align-items: flex-start; }
+  .nav-links { gap: 1rem; flex-wrap: wrap; }
   .nav-links a { font-size: 0.8rem; }
   .hero { padding: 5rem 1.5rem 4rem; }
   .hero h1 { font-size: 2.2rem; }
   .pillars { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
   .tier-grid { grid-template-columns: 1fr; }
+  .tier--full { margin-top: 0; }
   .principle-grid { grid-template-columns: 1fr; }
   .stat-row { grid-template-columns: 1fr; gap: 2.5rem; }
   .how, .principles, .evidence, .cta { padding-left: 1.5rem; padding-right: 1.5rem; }
@@ -235,8 +232,7 @@ body { background: var(--bg); color: var(--fg); font-family: var(--sans); line-h
 }
 
 @media (max-width: 480px) {
-  .nav { justify-content: center; text-align: center; }
-  .nav-links { justify-content: center; gap: 1rem; }
+  .nav-links { gap: 0.75rem; }
   .nav-links a { font-size: 0.75rem; }
 }
 
