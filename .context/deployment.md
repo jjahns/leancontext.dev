@@ -15,7 +15,7 @@ When leancontext.dev is ready:
 2. Set custom domain in repo Settings → Pages
 3. DNS records on registrar (Name.com):
    - A @ → 185.199.108.153, .109, .110, .111
-   - CNAME www → jjahns.github.io
+   - CNAME www → leancontext.github.io
 4. Enable "Enforce HTTPS" once SSL cert provisions.
 
 ## URL Structure
