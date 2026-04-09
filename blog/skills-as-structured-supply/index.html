@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skills as Structured Supply — Lean Context</title>
+  <meta name="description" content="The supply tier needs form, not just content. Skills are supply documents with a contract — trigger, scope, boundary — that make pull mechanical and the manifest honest.">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="../../" class="nav-logo">lean context</a>
+    <div class="nav-links">
+      <a href="../../problem/">Problem</a>
+      <a href="../../framework/">Framework</a>
+      <a href="../../impact/">Impact</a>
+      <a href="../../thesis/">Thesis</a>
+      <a href="../../blog/" class="active">Blog</a>
+      <a href="https://github.com/leancontext/website" class="ext">GitHub</a>
+    </div>
+  </nav>
+
+  <div class="pillar-back"><a href="../../blog/">&larr; Back to blog</a></div>
+
+  <article class="article">
+    <header class="article-header">
+      <p class="subtitle">April 2026 · Field Notes</p>
+      <h1>Skills as Structured Supply</h1>
+      <p class="subtitle">How to give the supply tier form — and why form is the difference between a docs folder and a pull system.</p>
+    </header>
+
+    <div class="article-body">
+
+      <h3 id="the-gap">The Gap in the Framework</h3>
+
+      <p>The thesis describes three tiers. The constitution is crisp — 30 to 50 lines, hard stops, always loaded. The manifest is crisp — 10 to 15 lines, routing table, always visible. The supply tier is described by what it holds: focused documents, pulled on demand, organized by retrieval key.</p>
+
+      <p>That is necessary but not sufficient. It tells you what the supply contains. It does not tell you what the supply <em>looks like</em>.</p>
+
+      <p>In practice, a supply tier without form degrades into a docs folder. Someone writes a markdown file about network standards. Someone else writes one about deployment procedures. A third person writes an architecture decision record. Each document has a different structure, a different level of detail, a different idea of what "focused" means. The manifest routes to them. The agent pulls them. And the quality of what arrives varies wildly — because the supply has content but no contract.</p>
+
+      <p>Skills are the contract.</p>
+
+      <h3 id="what-a-skill-is">What a Skill Is</h3>
+
+      <p>A skill is a supply document with a predictable shape. It has three parts:</p>
+
+      <p><strong>Trigger.</strong> When does this skill apply? The trigger is a description that maps to task patterns — the same patterns the manifest routes on. "Use when creating or editing Word documents." "Use when modifying database migration files." The trigger is what makes manifest routing mechanical instead of ad hoc. The agent reads the manifest, matches a trigger, pulls the skill. No ambiguity about which supply document applies.</p>
+
+      <p><strong>Scope.</strong> What does the agent need to know to do the work? This is the invisible knowledge — the instructions, constraints, best practices, and hard-won lessons that the agent cannot infer from the code. A skill is scoped to one concern. Not "everything about the database" but "how we write and validate migration files." Tight enough that the entire skill is relevant when pulled. Tight enough that loading it is cheap.</p>
+
+      <p><strong>Boundary.</strong> Where does this skill end? What is explicitly out of scope? What should the agent not attempt, and where should it hand off? The boundary prevents a skill from becoming a junk drawer. It also prevents the agent from over-applying a skill's instructions to adjacent work that needs different context.</p>
+
+      <p>Here is what the contract looks like in practice:</p>
+
+<pre><code># Skill: Database Migrations
+
+## Trigger
+Use when creating, modifying, or reviewing database migration files.
+
+## Scope
+- Migrations use Alembic with async SQLAlchemy.
+- Every migration must include a rollback path. No exceptions.
+- Column renames require a two-phase migration: add new, backfill,
+  drop old. Single-step renames break running deployments.
+- We hit a production outage in 2024 from a migration that locked
+  a 200M-row table. All ALTER TABLE on large tables must use
+  pt-online-schema-change or equivalent. The ORM will not protect you.
+- Test migrations against a snapshot of production data before merge.
+  The CI job is: make test-migrations
+
+## Boundary
+- Schema design decisions are out of scope. See: architecture-decisions/
+- ORM model changes that do not involve migrations do not need this skill.
+- Performance tuning of existing queries is a separate concern.</code></pre>
+
+      <p>That is the contract: trigger, scope, boundary. Every skill follows it. The agent knows what to expect when it pulls one. The human knows what to write when creating one. The scope holds invisible knowledge — the outage, the two-phase rename requirement, the CI job name — things no amount of code reading reveals.</p>
+
+      <h3 id="where-skills-fit">Where Skills Fit</h3>
+
+      <p>Skills live inside the supply tier. They are not a fourth tier. They are the supply tier with form.</p>
+
+      <!-- Extended architecture SVG -->
+      <div style="max-width: 540px; margin: 2rem auto;">
+        <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
+          <!-- Constitution -->
+          <rect x="130" y="20" width="220" height="46" rx="8" fill="#7edcb5" fill-opacity="0.35" stroke="#7edcb5" stroke-opacity="0.8" stroke-width="2"/>
+          <text x="240" y="40" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="700" fill="#7edcb5" fill-opacity="0.95">CONSTITUTION.md</text>
+          <text x="240" y="55" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.63">hard stops · always loaded</text>
+          <text x="100" y="47" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.55">pushed</text>
+
+          <!-- Connection -->
+          <line x1="240" y1="66" x2="240" y2="86" stroke="#7edcb5" stroke-opacity="0.4" stroke-width="1.5" stroke-dasharray="4 3"/>
+
+          <!-- Manifest -->
+          <rect x="110" y="86" width="260" height="46" rx="8" fill="#7edcb5" fill-opacity="0.28" stroke="#7edcb5" stroke-opacity="0.7" stroke-width="2"/>
+          <text x="240" y="106" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" font-weight="700" fill="#7edcb5" fill-opacity="0.88">MANIFEST.md</text>
+          <text x="240" y="121" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.63">routing table · always visible</text>
+          <text x="100" y="113" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.55">visible</text>
+
+          <!-- Pull divider -->
+          <line x1="60" y1="148" x2="420" y2="148" stroke="#7edcb5" stroke-opacity="0.35" stroke-width="1" stroke-dasharray="6 4"/>
+          <text x="240" y="162" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.5">pulled on demand</text>
+
+          <!-- Supply tier bracket -->
+          <rect x="50" y="172" width="380" height="230" rx="10" fill="#7edcb5" fill-opacity="0.04" stroke="#7edcb5" stroke-opacity="0.2" stroke-width="1.5" stroke-dasharray="6 3"/>
+          <text x="240" y="192" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="700" fill="#7edcb5" fill-opacity="0.68">.context/</text>
+
+          <!-- Skills section -->
+          <rect x="72" y="204" width="336" height="140" rx="8" fill="#7edcb5" fill-opacity="0.08" stroke="#7edcb5" stroke-opacity="0.35" stroke-width="1.5"/>
+          <text x="240" y="222" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" font-weight="700" fill="#7edcb5" fill-opacity="0.78">skills/ — structured supply</text>
+
+          <!-- Skill 1 -->
+          <rect x="88" y="234" width="96" height="96" rx="6" fill="#7edcb5" fill-opacity="0.18" stroke="#7edcb5" stroke-opacity="0.6" stroke-width="2"/>
+          <text x="136" y="252" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="700" fill="#7edcb5" fill-opacity="0.88">db-migrations</text>
+          <line x1="96" y1="260" x2="176" y2="260" stroke="#7edcb5" stroke-opacity="0.3" stroke-width="1"/>
+          <text x="106" y="274" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="118" y="274" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">trigger</text>
+          <text x="106" y="290" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="118" y="290" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">scope</text>
+          <text x="106" y="306" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="118" y="306" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">boundary</text>
+
+          <!-- Skill 2 -->
+          <rect x="192" y="234" width="96" height="96" rx="6" fill="#7edcb5" fill-opacity="0.18" stroke="#7edcb5" stroke-opacity="0.6" stroke-width="2"/>
+          <text x="240" y="252" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="700" fill="#7edcb5" fill-opacity="0.88">auth-flow</text>
+          <line x1="200" y1="260" x2="280" y2="260" stroke="#7edcb5" stroke-opacity="0.3" stroke-width="1"/>
+          <text x="210" y="274" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="222" y="274" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">trigger</text>
+          <text x="210" y="290" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="222" y="290" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">scope</text>
+          <text x="210" y="306" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="222" y="306" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">boundary</text>
+
+          <!-- Skill 3 -->
+          <rect x="296" y="234" width="96" height="96" rx="6" fill="#7edcb5" fill-opacity="0.18" stroke="#7edcb5" stroke-opacity="0.6" stroke-width="2"/>
+          <text x="344" y="252" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="700" fill="#7edcb5" fill-opacity="0.88">deploy-staging</text>
+          <line x1="304" y1="260" x2="384" y2="260" stroke="#7edcb5" stroke-opacity="0.3" stroke-width="1"/>
+          <text x="314" y="274" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="326" y="274" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">trigger</text>
+          <text x="314" y="290" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="326" y="290" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">scope</text>
+          <text x="314" y="306" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.45">&#9658;</text>
+          <text x="326" y="306" font-family="'JetBrains Mono',monospace" font-size="8" fill="#7edcb5" fill-opacity="0.55">boundary</text>
+
+          <!-- Unstructured supply -->
+          <rect x="72" y="354" width="155" height="36" rx="6" fill="#7edcb5" fill-opacity="0.08" stroke="#7edcb5" stroke-opacity="0.25" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <text x="150" y="376" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.5">ADRs, reference, vendor docs</text>
+          <text x="380" y="376" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="#7edcb5" fill-opacity="0.4">unstructured supply</text>
+
+          <!-- Manifest routing arrows -->
+          <path d="M175 132 L136 204" stroke="#7edcb5" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+          <path d="M240 132 L240 204" stroke="#7edcb5" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+          <path d="M305 132 L344 204" stroke="#7edcb5" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="4 3" fill="none"/>
+        </svg>
+      </div>
+
+      <p>Not all supply is skills. Architecture decision records, vendor reference material, compatibility notes — these do not follow the skill contract. They are pulled on demand but not structured as trigger-scope-boundary units. That is fine. But the supply that agents pull repeatedly, the supply that directly governs how work gets done — that supply benefits from a predictable shape.</p>
+
+      <p>Over time, the ratio shifts. The reference doc that kept getting pulled gets rewritten as a skill. The ADR that informed every auth change gets distilled into a skill for auth modifications. The supply tier does not start as all skills. It evolves toward skills as the human calibrates what the agent actually needs — not what they guessed it would need, but what it actually needed after ten sessions, after fifty.</p>
+
+      <h3 id="one-skill-one-concern">One Skill, One Concern</h3>
+
+      <p>One skill covers one concern. Not one topic — one concern. The difference matters. "The database" is a topic. "How we write and validate migration files" is a concern. "Authentication" is a topic. "How we handle token refresh in the mobile client" is a concern.</p>
+
+      <p>The test: if the skill is pulled, is all of it relevant? If half the skill is about something the current task does not need, it is too broad. Split it. The workbench rule applies inside the supply tier, not just at the tier boundary.</p>
+
+      <p>Skills also follow the same lifecycle pressures as the constitution. They will bloat. Every near-miss adds a paragraph. The fix is the same: decomposition. When a skill exceeds its useful size, one concern became two. Split it, update the manifest, and both skills are lean again. Skills go stale too — the library was replaced, the constraint was removed. A stale skill loads confidently wrong context, which is worse than no skill at all.</p>
+
+      <h3 id="harness-reality">Harness Reality</h3>
+
+      <p>The standard says skills live in <code>.context/skills/</code>. That is the canonical path. It is also a path that no agent harness reads from natively today. Every harness has its own opinion about where context files live, how they load, and whether conditional loading is supported.</p>
+
+      <p>This is the honest landscape as of early 2026:</p>
+
+      <p><strong>Claude Code.</strong> Reads <code>CLAUDE.md</code> as its instruction file. The agent can read files from a <code>.claude/</code> directory when instructed to. Skills work here — but the pull mechanism is human-engineered, not harness-native. The human writes routing logic in <code>CLAUDE.md</code> that tells the agent which files to load for which tasks. The agent follows those instructions. This is the closest to the standard's model, but the harness is not doing the routing — the human is, through the constitution.</p>
+
+      <p><strong>Cursor.</strong> Has moved past the single <code>.cursorrules</code> file (now deprecated) to a <code>.cursor/rules/</code> directory with <code>.mdc</code> files. Each rule file supports metadata: glob patterns for file matching, an <code>alwaysApply</code> flag, a description for agent-requested loading, and manual invocation. This is structurally close to conditional loading — rules attach when matching files are referenced. The mechanism is different from the standard's manifest routing, but the principle is converging: context loads based on what the task touches, not by default.</p>
+
+      <p><strong>Windsurf.</strong> Similarly evolved from <code>.windsurfrules</code> to a <code>.windsurf/rules/</code> directory with activation modes: always on, manual, glob-based, or model decision. Like Cursor, the harness is moving toward conditional context — rules load based on relevance, not by default.</p>
+
+      <p><strong>GitHub Copilot.</strong> Reads <code>AGENTS.md</code>. No directory-based context loading. No conditional activation. Everything the agent sees must be in the instruction file or discovered through code navigation. This is the most push-oriented harness in common use today.</p>
+
+      <p>The trajectory is clear. Harnesses are converging on directory-based, conditionally-loaded context — which is the pull model under different names. Cursor calls them "rules" with glob patterns. Windsurf calls them "rules" with activation modes. The standard calls them "skills" with triggers. The mechanism varies. The direction is the same: stop loading everything at session start.</p>
+
+      <p>But none of them read from <code>.context/</code>. Each harness defines its own path.</p>
+
+      <h3 id="bridging-the-gap">Bridging the Gap</h3>
+
+      <p>The standard already solves this for constitutions. <code>CONSTITUTION.md</code> is the source of truth. Symlinks bridge to harness-specific filenames:</p>
+
+<pre><code>ln -s CONSTITUTION.md CLAUDE.md
+ln -s CONSTITUTION.md AGENTS.md</code></pre>
+
+      <p>The same pattern extends to skills, but the bridge depends on what the harness supports. For harnesses with directory-based loading, the canonical <code>.context/skills/</code> can be symlinked or mirrored to the harness-specific path. For push-only harnesses, the bridge is the manifest itself — embedded in the instruction file, telling the agent which supply documents exist and where to find them.</p>
+
+<pre><code>your-repo/
+├── CONSTITUTION.md                ← canonical source of truth
+├── MANIFEST.md                    ← canonical routing table
+│
+├── .context/skills/               ← canonical skill location
+│   ├── db-migrations.md
+│   ├── auth-flow.md
+│   └── deploy-staging.md
+│
+├── CLAUDE.md → CONSTITUTION.md    ← symlink for Claude Code
+├── AGENTS.md → CONSTITUTION.md    ← symlink for Copilot
+│
+├── .claude/
+│   └── skills → ../.context/skills/
+│
+├── .cursor/rules/                 ← harness-native format
+│   └── db-migrations.mdc         ← can reference .context/ skills
+│
+└── .windsurf/rules/               ← harness-native format
+    └── db-migrations.md           ← can reference .context/ skills</code></pre>
+
+      <p>The principle: author skills once in the canonical location. Bridge to harness-specific paths. The skill contract — trigger, scope, boundary — is the same regardless of the path the harness reads from. When a harness adds features, the bridge simplifies. When it does not, the bridge compensates.</p>
+
+      <p>For Cursor and Windsurf, the bridge might be thin — their rule files can reference canonical skill files using file includes or path references, keeping the harness-specific file as a shim that points to the source of truth. The skill content lives in <code>.context/skills/</code>. The harness file provides the activation metadata in the format the harness expects.</p>
+
+      <h3 id="vendor-agnosticism">The Standard Is Not the Harness</h3>
+
+      <p>This distinction matters. The Lean Context Standard defines the architecture: constitution, manifest, supply. Skills define the form of structured supply: trigger, scope, boundary. These are harness-agnostic. They describe how to organize context for any agent, regardless of which tool loads it.</p>
+
+      <p>The harness is the delivery mechanism. It determines where files live, how they load, whether conditional loading is native or engineered. The harness will change. New tools will appear. Existing tools will add features — as Cursor and Windsurf already have. The standard should not be coupled to any of them.</p>
+
+      <p>What the standard provides is the contract that survives the harness. When a team switches from one agent tool to another, the constitution does not get rewritten. The skills do not get restructured. The manifest does not change. Only the bridge changes — which filenames are symlinked, which paths are mirrored, which metadata format wraps the content. The architecture is portable. The delivery adapts.</p>
+
+      <p>If the standard were defined in terms of <code>.claude/</code>, it would be a Claude standard. If defined in terms of <code>.cursor/rules/</code>, a Cursor standard. By defining it as <code>.context/</code> with bridges, it belongs to the practitioner — not the vendor.</p>
+
+      <h3 id="form-enables-function">Form Enables Function</h3>
+
+      <p>Without form, every supply document is a snowflake. The human writes what they think the agent needs, in whatever structure feels natural. The agent pulls it and parses whatever it gets. Sometimes it works. Sometimes the document is too broad, or too vague, or structured in a way that buries the relevant instruction under three paragraphs of background.</p>
+
+      <p>With form — trigger, scope, boundary — every supply document follows a contract. The human knows what to write. The agent knows what to expect. The manifest routing is mechanical. The pull rule works because what gets pulled is reliably useful.</p>
+
+      <p>Form is not bureaucracy. It is the difference between a parts bin and a supply chain. Both hold inventory. Only one delivers the right part at the right time.</p>
+
+      <h3 id="summary">Summary</h3>
+
+      <p>The supply tier needs form, not just content. Skills are supply documents with a contract: trigger, scope, boundary. The trigger makes manifest routing mechanical. The scope delivers invisible knowledge for one concern. The boundary prevents bloat and over-application.</p>
+
+      <p>Skills live canonically in <code>.context/skills/</code>. The harness determines the delivery path. Harnesses are converging on conditional loading — directory-based context that activates by relevance, not by default. The standard names the contract. The bridge adapts it to each harness. When the harness changes, the bridge changes. The skills stay.</p>
+
+      <p>The standard is not the harness. The architecture survives the tooling.</p>
+
+    </div>
+
+    <footer class="article-footer">
+      <p>The Lean Context Standard · Jay Jahns · 2026 · <a href="../../about/" style="color: var(--fg-muted); text-decoration: underline; text-underline-offset: 2px;">About</a></p>
+    </footer>
+  </article>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Skills Are Structured Supply — Lean Context</title>
+  <meta name="description" content="Supply documents need form. A skill is a supply document with a contract — trigger, purpose, instructions. Without form, supply is a pile of docs. With it, supply becomes a skill matrix.">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="../../" class="nav-logo">lean context</a>
+    <div class="nav-links">
+      <a href="../../problem/">Problem</a>
+      <a href="../../framework/">Framework</a>
+      <a href="../../impact/">Impact</a>
+      <a href="../../thesis/">Thesis</a>
+      <a href="../../blog/" class="active">Blog</a>
+      <a href="https://github.com/leancontext/website" class="ext">GitHub</a>
+    </div>
+  </nav>
+
+  <div class="pillar-back"><a href="../../blog/">&larr; Back to blog</a></div>
+
+  <article class="article">
+    <header class="article-header">
+      <h1>Skills Are Structured Supply</h1>
+      <p class="subtitle">Giving supply documents form, function, and a contract.</p>
+      <p style="font-family: var(--mono); font-size: 0.75rem; color: var(--fg-muted); margin-top: 0.75rem;">April 2026</p>
+    </header>
+
+    <div class="article-body">
+
+      <h3 id="the-gap">The Gap in the Framework</h3>
+
+      <p>The Lean Context Standard defines three tiers: constitution, manifest, supply. The constitution is well-specified — 30 to 50 lines, hard stops only, every line load-bearing. The manifest is well-specified — a routing table, 10 to 15 lines, task patterns mapped to context sources. The supply is... a directory of documents.</p>
+
+      <p>That is the gap. The supply tier tells you <em>where</em> to put context and <em>when</em> to load it. It does not tell you what a well-formed supply document looks like. It does not tell the agent what it is holding, why it was given it, or what to do with it. The supply tier has location and timing but no structure.</p>
+
+      <p>In lean manufacturing terms: the supply tier has a warehouse but no standardized work instructions.</p>
+
+      <h3 id="standardized-work">Standardized Work</h3>
+
+      <p>On a factory floor, a standardized work instruction is not a general reference document. It is a specific form with a specific contract. It declares: the operation it covers, the tools required, the sequence of steps, the quality checks, and the cycle time. Every station has one. The form is consistent across the plant. That consistency is what makes the instructions routable, auditable, and improvable.</p>
+
+      <p>A pile of reference documents pinned to the wall is not standardized work. It is a junk drawer with a nice location. The information might be correct. The form is missing. And without form, you cannot route to it reliably, you cannot audit it systematically, and you cannot improve it because you have no structure to measure against.</p>
+
+      <p>Skills are standardized work instructions for the supply tier.</p>
+
+      <h3 id="anatomy">Anatomy of a Skill</h3>
+
+      <p>A skill is a supply document with a contract. The contract has three parts:</p>
+
+      <p><strong>Trigger.</strong> When should the manifest route to this skill? This is not a vague topic label. It is a set of conditions — task patterns, file types, operations — that tell the agent (or the manifest) exactly when this context is relevant. "When modifying network configuration" is a trigger. "Networking stuff" is not.</p>
+
+      <p><strong>Purpose.</strong> What invisible knowledge does this skill provide? This is the knowledge boundary justification. The skill exists because it contains something the agent cannot infer from the code, the environment, or the task itself. If the skill's content is inferable, the skill should not exist. The purpose statement forces the author to answer: <em>why can't the agent figure this out on its own?</em></p>
+
+      <p><strong>Instructions.</strong> How should the agent use this knowledge? Not "here is reference material, good luck" but directed guidance — what to do, what to avoid, what sequence to follow, what the quality bar looks like. The instructions are the work, not a reading assignment.</p>
+
+      <p>In practice:</p>
+
+<pre><code># SKILL.md — Network Configuration Changes
+
+## Trigger
+Modifying OVN, SONiC, FRR, or BGP/EVPN configuration
+in any file under network/ or when the manifest routes here.
+
+## Purpose
+Switch port naming conventions, VLAN-to-VNI mappings,
+and BGP community tags follow constraints that are not
+encoded in the config files and cannot be inferred from
+the codebase. Two previous incidents trace directly to
+agents applying syntactically valid but operationally
+wrong community strings.
+
+## Instructions
+1. Verify the target switch tier (spine/leaf/border)
+   before selecting a port naming template.
+2. Cross-reference VLAN assignments against the
+   allocation table in this document — do not infer
+   from existing configs, they contain legacy exceptions.
+3. BGP community strings: use ONLY the values listed
+   below. Do not generate or extrapolate.
+   [values follow]
+4. If the change touches a border leaf, pull the
+   additional context at .context/border-leaf-policy.md.
+5. If any mapping is ambiguous, stop. Andon rule.
+</code></pre>
+
+      <p>This is not a reference document. It is a work instruction. The agent knows when it applies, why it exists, and what to do with it. The form makes that possible.</p>
+
+      <h3 id="form-to-function">Form Creates Function</h3>
+
+      <p>The three-part contract — trigger, purpose, instructions — does several things that unstructured supply documents cannot.</p>
+
+      <p><strong>Routing becomes mechanical.</strong> The manifest maps task patterns to skills. The skill's trigger confirms whether the match is correct. This is a two-stage routing system: the manifest gets the agent to the right neighborhood, and the trigger confirms the address. Without triggers, the manifest is doing all the routing work on a one-line description. With triggers, the agent can self-verify before loading the full instructions.</p>
+
+      <p><strong>Auditing becomes possible.</strong> Every skill has a purpose statement that declares why the agent needs it. During a curation pass, the human reads that purpose and asks: is this still true? Has this invisible knowledge been encoded into the code, the tooling, or the environment since this skill was written? If the purpose is no longer valid, the skill demotes to archive or deletes entirely. Without purpose statements, curation is guesswork — the human has to re-derive why each document exists.</p>
+
+      <p><strong>Gaps become visible.</strong> When skills have form, you can inventory them. You can see which operations have skills and which do not. You can see which skills have been pulled frequently and which are dead weight. The absence of a skill for a known operation is a signal — either the operation's knowledge is fully inferable, or there is a gap in the supply that hasn't been filled yet. That visibility does not exist when supply is just a directory of markdown files.</p>
+
+      <p><strong>Quality becomes measurable.</strong> A skill with a trigger, purpose, and instructions can be evaluated against each dimension independently. Is the trigger precise enough? Does the purpose still hold? Are the instructions actionable? An unstructured document can only be evaluated holistically — "is this still good?" — which is a question humans reliably answer with "probably, leave it."</p>
+
+      <h3 id="skill-matrix">The Skill Matrix</h3>
+
+      <p>Once skills have form, they compose into a skill matrix — not just "what supply documents exist" but "what capabilities does this system have, and where are the gaps?"</p>
+
+<pre><code>Operation              Skill                      Last Pulled   Status
+─────────────────────  ─────────────────────────  ───────────   ──────
+Network config         network-standards.md       2 days ago    active
+Auth changes           auth-architecture.md       1 week ago    active
+Deploy to prod         deploy-procedures.md       today         active
+Ceph operations        —                          —             gap
+Certificate rotation   cert-rotation.md           93 days ago   stale
+Database migrations    db-migrations.md           never         suspect
+</code></pre>
+
+      <p>This is the shadow board for the supply tier. Every tool has an outline. You can see at a glance what is present, what is missing, and what is gathering dust. The human maintains this matrix the same way a factory team leader maintains the shadow board — not by filling every slot, but by ensuring the board reflects reality.</p>
+
+      <p>The "never pulled" skill is a signal. Either the manifest is not routing to it (routing failure), or the operation it covers has not come up (the skill is premature), or the trigger is wrong (the skill exists but does not activate). Each diagnosis leads to a different fix. Without the matrix, the skill just sits in the directory, inert and invisible.</p>
+
+      <p>The "stale" skill is the demotion candidate. Ninety-three days without a pull means either the operation is rare or the skill's knowledge has been absorbed elsewhere. The human checks. If absorbed — demote. If rare — keep but flag for review next cycle. This is context compaction applied to the supply tier.</p>
+
+      <h3 id="one-skill-one-job">One Skill, One Job</h3>
+
+      <p>The workbench rule applies to skills the same way it applies to the constitution. A skill that covers three different operations is three skills wearing a trench coat. When the agent pulls it for one operation, it loads the context for all three. Two-thirds of the content is inventory waste.</p>
+
+      <p>One skill, one operation. If two operations share common knowledge, that shared knowledge lives in its own skill and both manifests route to it when needed. The agent pulls two small, relevant documents instead of one large, partially relevant one.</p>
+
+      <p>This is the same principle as the supply tier itself: each document small enough that loading it is cheap, and specific enough that all of it is relevant. The skill contract enforces this — a skill with a diffuse trigger or a purpose statement that lists five different reasons for existing is a skill that needs to be split.</p>
+
+      <h3 id="where-skills-live">Where Skills Live in the Standard</h3>
+
+      <p>Skills do not change the three-tier architecture. They <em>implement</em> the supply tier with structure.</p>
+
+<pre><code>your-repo/
+├── CONSTITUTION.md            ← hard stops, always loaded
+├── MANIFEST.md                ← routing table, always visible
+│   ┊  - Network changes    → .context/skills/network-standards/SKILL.md
+│   ┊  - Auth modifications → .context/skills/auth-architecture/SKILL.md
+│   ┊  - Deploy procedures  → .context/skills/deploy-procedures/SKILL.md
+│
+└── .context/
+    └── skills/
+        ├── network-standards/
+        │   ├── SKILL.md             ← trigger + purpose + instructions
+        │   └── vlan-allocation.md   ← supporting material, pulled from instructions
+        ├── auth-architecture/
+        │   └── SKILL.md
+        └── deploy-procedures/
+            └── SKILL.md
+</code></pre>
+
+      <p>The SKILL.md is the entry point — the standardized work instruction. Supporting material referenced from within the skill's instructions lives alongside it. The agent reads the SKILL.md first, and only pulls supporting material if the instructions direct it to. This is pull within pull — lean at two levels.</p>
+
+      <h3 id="connection">The Connection to the Thesis</h3>
+
+      <p>Skills are where several ideas in the thesis converge:</p>
+
+      <p>The <strong>pull rule</strong> gives skills their delivery mechanism. Skills load when the task demands, not at session start. The trigger is the pull signal.</p>
+
+      <p>The <strong>shadow board rule</strong> gives skills their discoverability. The manifest maps tasks to skills. The skill matrix makes the full inventory visible. The agent sees what exists without holding any of it.</p>
+
+      <p>The <strong>knowledge boundary</strong> gives skills their justification. The purpose statement forces the author to prove the content is invisible knowledge. Inferable knowledge is excluded by design.</p>
+
+      <p>The <strong>andon rule</strong> gives skills their escape hatch. The instructions can — and should — include explicit stop conditions. "If the mapping is ambiguous, stop." The skill does not just give the agent knowledge. It gives the agent permission to stop when the knowledge is insufficient.</p>
+
+      <p>The <strong>constitution problem</strong> gives skills their origin story. Rules that get demoted from the constitution do not disappear. They become skills — supply documents with form, routed by the manifest, pulled when relevant. The demotion mechanism creates skills. The skill contract ensures they stay useful instead of becoming the same junk drawer in a new location.</p>
+
+      <p>And the <strong>calibration loop</strong> gives skills their improvement mechanism. The human watches the agent work. The agent pulls a skill — it works. The human learns the trigger is accurate. The agent hits a gap — the human writes a new skill. The agent pulls a skill and still fails — the instructions are wrong or incomplete. Each cycle sharpens the supply, and the skill's structured form makes the diagnosis precise rather than vague.</p>
+
+      <h3 id="summary">Summary</h3>
+
+      <p>Supply documents need form. Without it, the supply tier is a directory of files — present but unstructured, available but not routable, maintained by memory instead of by system. Skills give supply documents a contract: trigger, purpose, instructions. That contract is what makes the supply tier auditable, the skill matrix visible, and the calibration loop precise.</p>
+
+      <p>Skills are not a new tier. They are the supply tier, done right.</p>
+
+    </div>
+
+    <footer class="article-footer">
+      <p>The Lean Context Standard · Jay Jahns · April 2026 · <a href="../../about/" style="color: var(--fg-muted); text-decoration: underline; text-underline-offset: 2px;">About</a></p>
+    </footer>
+  </article>
+</body>
+</html>
